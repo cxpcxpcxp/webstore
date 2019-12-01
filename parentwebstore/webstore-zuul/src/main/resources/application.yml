@@ -1,0 +1,12 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: webstore-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    registry-fetch-interval-seconds: 5 #设置拉取服务的时间  5秒
+zuul:
+  prefix: /api  #网关前缀

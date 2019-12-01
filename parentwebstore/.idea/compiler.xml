@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="webstore-common" />
+        <module name="webstore-eureka" />
+        <module name="webstore-item-interface" />
+        <module name="webstore-item-service" />
+        <module name="webstore-zuul" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="webstore-item-common" target="1.8" />
+      <module name="webstoreeureka" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
