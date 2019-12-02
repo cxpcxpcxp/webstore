@@ -1,4 +1,4 @@
-# bianyi-manage-web
+# plantasun-manage-web
 
 > A Vue.js project
 
