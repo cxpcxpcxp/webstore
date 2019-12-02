@@ -10,3 +10,5 @@ eureka:
     registry-fetch-interval-seconds: 5 #设置拉取服务的时间  5秒
 zuul:
   prefix: /api  #网关前缀
+  routes:
+    webstore-item-service: /item/** #商品微服务的映射路径

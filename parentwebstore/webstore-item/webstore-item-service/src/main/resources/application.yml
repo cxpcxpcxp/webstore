@@ -20,4 +20,4 @@ mybatis:
 zuul:
   prefix: /api  #网关前缀
   routes:
-    item-service: /item/** #商品微服务的映射路径
+    webstore-item-service: /item/** #商品微服务的映射路径
