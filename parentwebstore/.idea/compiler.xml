@@ -10,6 +10,7 @@
         <module name="webstore-eureka" />
         <module name="webstore-item-interface" />
         <module name="webstore-item-service" />
+        <module name="webstore-upload" />
         <module name="webstore-zuul" />
       </profile>
     </annotationProcessing>

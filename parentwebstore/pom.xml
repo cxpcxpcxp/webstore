@@ -12,6 +12,7 @@
         <module>webstore-zuul</module>
         <module>webstore-item</module>
         <module>webstore-common</module>
+        <module>webstore-upload</module>
     </modules>
 
 
