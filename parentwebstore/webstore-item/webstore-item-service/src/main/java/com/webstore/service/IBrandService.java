@@ -9,4 +9,6 @@ public interface IBrandService {
     PageResult<Brand> findBrandByPage(String key, Integer page, Integer rows, String bid, Boolean desc);
 
     void saveBrand(Brand brand, List<Long> cids);
+
+    List<Brand> findBrandByCid(Long cid);
 }

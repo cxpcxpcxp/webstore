@@ -1,5 +1,4 @@
 package com.webstore.service.impl;
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.webstore.common.pojo.PageResult;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
-
 
 import java.util.List;
 @Service
@@ -26,7 +24,7 @@ public class BrandServiceImpl implements IBrandService {
         Example.Criteria criteria = example.createCriteria();
 //        模糊查询
         if (StringUtils.isNotBlank(key)){
-            criteria.andLike("name","%"+key+"%").andEqualTo("letter",key);
+            criteria.andLike("name","%"+key+"%").orEqualTo("letter",key);
         }
 
 
@@ -48,5 +46,11 @@ public class BrandServiceImpl implements IBrandService {
         cids.forEach(cid->{
             brandMapper.addCategoryAndBrand(cid,brand.getId());
         });
+    }
+
+    @Override
+    public List<Brand> findBrandByCid(Long cid) {
+        List<Brand> brandByCid = brandMapper.findBrandByCid(cid);
+        return brandByCid;
     }
 }

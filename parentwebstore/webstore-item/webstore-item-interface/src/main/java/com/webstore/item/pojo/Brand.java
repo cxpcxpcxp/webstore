@@ -5,6 +5,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+
 @Table(name = "tb_brand")
 public class Brand implements Serializable {
     @Id
