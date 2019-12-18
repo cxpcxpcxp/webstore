@@ -10,6 +10,7 @@ import com.webstore.service.IGoodsService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
@@ -93,6 +94,40 @@ public class GoodsServiceImpl implements IGoodsService {
 //        保存sku和stock
             saveSkuAndStock(spuBo);
 
+    }
+
+    @Override
+    public SpuDetail findSpuDetailAndSkus(Long spuid) {
+        return spuDetailsMapper.selectByPrimaryKey(spuid);
+    }
+
+    @Override
+    public List<Sku> findSkusBySpuid(Long spuid) {
+        Sku sku = new Sku();
+        sku.setSpuId(spuid);
+        List<Sku> skuList = skuMapper.select(sku);
+        skuList.forEach(sku1 -> {
+            Stock stock = stockMapper.selectByPrimaryKey(sku1.getId());
+            stock.setStock(stock.getStock());
+        });
+        return skuList;
+    }
+
+    @Override
+    public void updateSpuAndSku(SpuBo spuBo) {
+        List<Sku> skuList = findSkusBySpuid(spuBo.getId());
+        skuList.forEach(sku -> {
+            skuMapper.deleteByPrimaryKey(sku.getId());
+            stockMapper.deleteByPrimaryKey(sku.getId());
+        });
+
+        spuMapper.updateByPrimaryKeySelective(spuBo);
+        spuDetailsMapper.updateByPrimaryKeySelective(spuBo.getSpuDetail());
+    }
+
+    @Override
+    public Spu querySpuById(Long id) {
+        return spuMapper.selectByPrimaryKey(id);
     }
 
     private void saveSkuAndStock(SpuBo spuBo) {

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ISpecGroupService {
     List<SpecGroup> findSpecGroupByCid(Long cid);
+
 }

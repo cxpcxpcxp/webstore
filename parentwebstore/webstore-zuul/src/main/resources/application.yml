@@ -12,3 +12,4 @@ zuul:
   prefix: /api  #网关前缀
   routes:
     webstore-item-service: /item/** #商品微服务的映射路径
+    webstore-search: /search/**

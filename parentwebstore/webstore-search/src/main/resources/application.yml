@@ -1,0 +1,31 @@
+server:
+  port: 9992
+spring:
+  application:
+    name: webstore-search
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 192.168.92.128:9300
+#      cluster-nodes: 127.0.0.1:9300
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+#hystrix的超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 600000
+#ribbon的超时时间
+ribbon:
+  ReadTimeout: 300000
+  ConnectTimeout: 300000

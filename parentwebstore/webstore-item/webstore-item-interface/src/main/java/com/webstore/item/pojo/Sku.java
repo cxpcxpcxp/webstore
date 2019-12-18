@@ -11,6 +11,15 @@ public class Sku implements Serializable {
     private Long spuId;
     private String title;
     private String images;
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
+
     private Long price;
     private String ownSpec;// 商品特殊规格的键值对
     private String indexes;// 商品特殊规格的下标
@@ -44,13 +53,7 @@ public class Sku implements Serializable {
         this.title = title;
     }
 
-    public String getImages() {
-        return images;
-    }
 
-    public void setImages(String images) {
-        this.images = images;
-    }
 
     public Long getPrice() {
         return price;

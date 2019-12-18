@@ -7,16 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="webstore-common" />
+        <module name="webstore-detail" />
         <module name="webstore-eureka" />
         <module name="webstore-item-interface" />
         <module name="webstore-item-service" />
+        <module name="webstore-search" />
         <module name="webstore-upload" />
         <module name="webstore-zuul" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="webstore-item-common" target="1.8" />
-      <module name="webstoreeureka" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

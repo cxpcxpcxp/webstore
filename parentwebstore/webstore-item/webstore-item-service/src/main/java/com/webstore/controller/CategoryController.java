@@ -28,4 +28,19 @@ public class CategoryController {
         }
         return ResponseEntity.ok(categories);
     }
+
+    /**
+     * 根据分类id的集合查询分类名称的集合
+     * @param ids
+     * @return
+     */
+    @GetMapping("names")
+    public ResponseEntity<List<String>> queryNamesByIds(@RequestParam("ids")List<Long> ids){
+
+        List<String> names = this.categoryService.findCnameByIds(ids);
+        if (CollectionUtils.isEmpty(names)) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(names);
+    }
 }

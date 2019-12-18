@@ -11,6 +11,14 @@
 
     <groupId>com.plantasun.item</groupId>
     <artifactId>webstore-item-interface</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.plantasun.common</groupId>
+            <artifactId>webstore-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>
